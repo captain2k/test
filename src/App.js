@@ -1,23 +1,52 @@
-import logo from './logo.svg';
+import { Layout } from 'antd';
+
+
 import './App.css';
+import 'antd/dist/antd.css'
+import MainHeader from './Component/MainHeader/MainHeader';
+import SiderMenu from './Component/SiderMenu/SiderMenu';
+import { useEffect } from 'react';
+
 
 function App() {
+
+  const { Header, Sider, Content } = Layout
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Layout style={{
+        backgroundColor: '#fff'
+      }}>
+        <Header
+          style={{
+            backgroundColor: '#E6311A',
+            padding: '8px 20px',
+            lineHeight: 0,
+            height: 56,
+            width: 1440,
+            margin: 'auto',
+            position: 'fixed',
+            right: '50%',
+            transform: "translateX(50%)",
+            zIndex: 1
+          }}>
+          <MainHeader />
+        </Header>
+        <Layout style={{
+          width: 1440,
+          margin: 'auto',
+          backgroundColor: '#ffffff',
+          marginTop: 56
+        }}>
+          <Sider
+            width={220}
+            style={{
+              backgroundColor: '#F3F2F1'
+            }}>
+            <SiderMenu />
+          </Sider>
+
+        </Layout>
+      </Layout>
     </div>
   );
 }
